@@ -7,42 +7,57 @@
                 <div class="heading text-center hed2">
                     <!-- Heading -->
                     <h2>Contact Us</h2>
-                    <p>We are eager for your emails.</p>
+                    <p>We are eager to hear from you</p>
                 </div>
             </div>
             <div class="row mrgn30">
                 <div class="col-md-offset-2 col-md-8 col-sm-12">
                     <!--NOTE: Update your email Id in "contact_me.php" file in order to receive emails from your contact form-->
 
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post))
+                    {
+
                         <div class="control-group">
                             <div class="controls">
-                                <input type="text" class="form-control"
-                                       placeholder="Full Name" id="name" required
-                                       data-validation-required-message="Please enter your name" />
+                                @Html.HiddenFor(d => d.Id)
+                                @Html.TextBoxFor(d => d.FullName, new { @class = "form-control", @id = "name", @placeholder = "Full Name" })
                                 <p class="help-block"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="controls">
-                                <input type="email" class="form-control" placeholder="Email"
-                                       id="email" required
-                                       data-validation-required-message="Please enter your email" />
                             </div>
                         </div>
 
                         <div class="control-group">
                             <div class="controls">
-                                <textarea rows="10" cols="100" class="form-control"
-                                          placeholder="Message" id="message" required
-                                          data-validation-required-message="Please enter your message" minlength="5"
-                                          data-validation-minlength-message="Min 5 characters"
-                                          maxlength="999" style="resize:none"></textarea>
+                                @Html.TextBoxFor(d => d.Email, new { @class = "form-control", @id = "email", @placeholder = "Email" })
+                                @*<input type="email" class="form-control" placeholder="Email"
+                                    id="email" required value="@Model.Email"
+                                    data-validation-required-message="Please enter your email" />*@
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+                                @Html.TextAreaFor(d => d.Message, new
+                                {
+                                    @class = "form-control",
+                                    @id = "Message",
+                                    @placeholder = "Message",
+                                    @maxlength = "999",
+                                    @style = "resize:none",
+                                    @rows = "10",
+                                    @cols = "100"
+                                })
+                                @*<textarea rows="10" cols="100" class="form-control" value="@Model.Message"
+                                    placeholder="Message" id="message" required
+                                    data-validation-required-message="Please enter your message" minlength="5"
+                                    data-validation-minlength-message="Min 5 characters"
+                                    maxlength="999" style="resize:none"></textarea>*@
                             </div>
                         </div>
                         <div id="success"> </div> <!-- For success/fail messages -->
                         <button type="submit" class="btn btn-primary pull-right">Send</button><br />
-                    </form>
+
+                    }
+
                 </div>
             </div>
         </div>

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EventUk.Web.Models.ViewModels;
+using EventUk.Web.MyWork;
 
 namespace EventUk.Web.Controllers
 {
@@ -13,18 +15,17 @@ namespace EventUk.Web.Controllers
             return View();
         }
 
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult ContactUs(ContactUsViewModel contact)
         {
-            ViewBag.Message = "Your application description page.";
+            ContactUsDetails obj = new ContactUsDetails();
+            string response = obj.EmailFunctionality(contact);
+            if (response == "Success")
+            {
 
-            return View();
-        }
+            }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return RedirectToAction("Index");
         }
     }
 }
