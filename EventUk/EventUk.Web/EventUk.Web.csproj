@@ -162,6 +162,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -182,6 +183,7 @@
     <Content Include="Template\font\css\font-awesome.css" />
     <Content Include="Template\font\css\font-awesome.min.css" />
     <Content Include="Template\font\fonts\fontawesome-webfont.svg" />
+    <Content Include="Template\images\Brit5Logo.png" />
     <Content Include="Template\images\dots.png" />
     <Content Include="Template\images\logo.png" />
     <Content Include="Template\images\picture-136.png" />

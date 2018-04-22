@@ -111,7 +111,7 @@ and GPL-3.0 (http://opensource.org/licenses/GPL-3.0) licenses.
       return this.init();
     };
     $.countdown.defaultOptions = {
-      date: "March 27, 2018 15:03:25",
+      date: "April 18, 2018 15:03:25",
       refresh: 1000,
       onEnd: $.noop,
       render: function(date) {
